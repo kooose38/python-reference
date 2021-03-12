@@ -35,6 +35,9 @@ df.fillna(df['category'].mode()[0])
 ```
 pd.date_range(start='2020/10/01', periods=30)
 df['date'].apply(pd.to_datetime)
+
+df.resample('M').agg(['mean','sum']) # 10D | Q
+
 ```
 > preprosseing
 ```
