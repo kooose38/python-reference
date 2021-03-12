@@ -10,6 +10,10 @@ df.rename(columns={'col1': 'col10'})
 df.sort_values(by='col1', ascending=False, na_position='first')
 df.drop(['tagert'], axis=1) #delete target in columns
 ```
+> multi_index by groupby()
+```
+df[['name','category','yen']].groupby(by=['name','category']).agg(['mean','sum','count','std','var']).round(0) 
+```
 
 > 欠損処理
 ```
