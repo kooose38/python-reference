@@ -37,7 +37,9 @@ pd.date_range(start='2020/10/01', periods=30)
 df['date'].apply(pd.to_datetime)
 
 df.resample('M').agg(['mean','sum']) # 10D | Q
-
+# get a weekday_name
+df['date'].weekday
+df['date'].day_name() # monday, thesday,wednesday ....
 ```
 > preprosseing
 ```
