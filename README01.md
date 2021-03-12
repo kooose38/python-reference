@@ -8,6 +8,7 @@ df=pd.to_csv('sample.csv', names=['col1', 'col2', 'col3'], header=0, encoding='u
 df.index=['ind0', 'ind1', 'ind2']
 df.rename(columns={'col1': 'col10'})
 df.sort_values(by='col1', ascending=False, na_position='first')
+df.drop(['tagert'], axis=1) #delete target in columns
 ```
 
 > 欠損処理
@@ -25,7 +26,7 @@ df.fillna(df['category'].mode()[0])
 pd.date_range(start='2020/10/01', periods=30)
 df['date'].apply(pd.to_datetime)
 ```
-
+> 前処理
 ```
 pd.get_dummies(data=df, columns=['data'])
 ```
