@@ -41,9 +41,16 @@ df.resample('M').agg(['mean','sum']) # 10D | Q
 df['date'].weekday
 df['date'].day_name() # monday, thesday,wednesday ....
 ```
-> preprosseing
+> preprosseing category of str to int
 ```
 pd.get_dummies(data=df, columns=['data'])
+
+or 
+
+#from sklearn.preprocessing import LabelEncoder
+la = LabelEncoder()
+df['name']=la.fit_transform(df['name'])
+la.classes_
 ```
 
 > month average
