@@ -1,3 +1,7 @@
+## Pandas
+
+1. axis=0 rows
+2. axis=1 columns
 
 ```
 df=pd.to_csv('sample.csv', names=['col1', 'col2', 'col3'], header=0, encoding='utf-8', skiprows=1, index_col=[0, 1], parse_date=True)
@@ -6,11 +10,34 @@ df.rename(columns={'col1': 'col10'})
 df.sort_values(by='col1', ascending=False, na_position='first')
 ```
 
-> 欠損地の処理
+> 欠損処理
 ```
+df.isnull().sum() | df.info()
+
 df.dropna()
 df.fillna(0)
 df.fillna(method = 'ffill')
-df.fillna(df['data'].mean()]
+df.fillna(df['data'].mean())
 df.fillna(df['category'].mode()[0])
+```
+
+```
+pd.date_range(start='2020/10/01', periods=30)
+df['date'].apply(pd.to_datetime)
+```
+
+```
+pd.get_dummies(data=df, columns=['data'])
+```
+
+> monthごとの平均
+```
+df_index_date.resample(freq='M').mean() # freq='W-SAT'
+
+df.groupby(pd.Grouper(freq='M')).sum()
+```
+> histgram && scatter to plot
+```
+from pandas.plotting import scatter_matrix
+scatter_matrix(df)
 ```
