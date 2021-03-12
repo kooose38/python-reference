@@ -5,3 +5,12 @@ df.index=['ind0', 'ind1', 'ind2']
 df.rename(columns={'col1': 'col10'})
 df.sort_values(by='col1', ascending=False, na_position='first')
 ```
+
+> 欠損地の処理
+```
+df.dropna()
+df.fillna(0)
+df.fillna(method = 'ffill')
+df.fillna(df['data'].mean()]
+df.fillna(df['category'].mode()[0])
+```
