@@ -19,6 +19,7 @@ df.pivot_table(index=['name'], columns='category', values=['yen','sales_yen'], a
 ```
 pd.merge(df1, df2, left_on='name', right_on='name', how='outer', indicator=True)
 pd.merge(df1, df2, left_index=True, right_index=True, how='outer', indicator=True, sort=True)
+pd.concat([df1, df2, df3, df4], axis=0, join='outer' )
 ```
 > 欠損処理
 ```
@@ -30,7 +31,7 @@ df.fillna(method = 'ffill')
 df.fillna(df['data'].mean())
 df.fillna(df['category'].mode()[0])
 ```
-> create array od datetime
+> create array of datetime
 ```
 pd.date_range(start='2020/10/01', periods=30)
 df['date'].apply(pd.to_datetime)
