@@ -13,6 +13,7 @@ df.drop(['tagert'], axis=1) #delete target in columns
 > multi_index by groupby()
 ```
 df[['name','category','yen']].groupby(by=['name','category']).agg(['mean','sum','count','std','var']).round(0) 
+df.pivot_table(index=['name'], columns='category', values=['yen','sales_yen'], aggfunc=['sum'], fill_value=0, margins=True, margins_name='ALL')
 ```
 
 > 欠損処理
